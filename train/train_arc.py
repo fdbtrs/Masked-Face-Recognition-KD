@@ -74,6 +74,8 @@ def main(args):
     #    header = losses.MarginCosineProduct(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=64, m=cfg.margin).to(local_rank)
     #elif args.loss == "Softmax":
     #    header = losses.ArcFace(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=64.0, m=0).to(local_rank)
+    elif args.loss == "ElasticFaceArc":
+         header = losses.ElasticArcFace(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=cfg.s, m=cfg.m, std=0.05).to(local_rank)
     else:
         print("Header not implemented")
    
