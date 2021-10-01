@@ -13,10 +13,7 @@ import sklearn
 from sklearn.preprocessing import normalize
 import torch
 
-from util.config import config as cfg
 
-from backbones.augment_cnn import AugmentCNN 
-import backbones.genotypes as gt 
 
 
 
@@ -87,8 +84,7 @@ def main(args):
     image_shape = [int(x) for x in args.image_size.split(',')]
 
     for model_path in args.model.split('|'):
-        genotype = gt.from_str(cfg.genotypes["softmax_casia"])
-        backbone = AugmentCNN(C=32, n_layers=9, genotype=genotype, stem_multiplier=4, emb=cfg.embedding_size).to("cuda:0")
+        backbone = iresnet100(num_features=cfg.embedding_size).to("cuda:0")
 
         backbone.load_state_dict(torch.load(model_path))
         #model = torch.nn.DataParallel(backbone, device_ids=[gpu_id])

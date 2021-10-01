@@ -11,8 +11,7 @@ from torch.nn import CrossEntropyLoss
 from torch.nn.parallel.distributed import DistributedDataParallel
 from torch.nn.utils import clip_grad_norm_
 
-import backbones.genotypes as gt
-from backbones.augment_cnn import AugmentCNN
+from backbones import iresnet100
 from config.config import config as cfg
 from utils import losses
 from utils.dataset import MXFaceDataset, DataLoaderX
@@ -47,8 +46,7 @@ def main(args):
 
 
     # load model
-    genotype = gt.from_str(cfg.genotypes["softmax_casia"])
-    backbone_student = AugmentCNN(C=cfg.channel, n_layers=cfg.n_layers, genotype=genotype, stem_multiplier=4, emb=cfg.embedding_size).to(local_rank)
+    backbone_student = iresnet100(num_features=cfg.embedding_size).to(local_rank)
 
     if args.pretrained_student:
         try:
@@ -178,7 +176,7 @@ if __name__ == "__main__":
     parser.add_argument('--loss', type=str, default="ArcFace", help="loss function")
     parser.add_argument('--pretrained_student', type=int, default=0, help="use pretrained")
     parser.add_argument('--resume', type=int, default=1, help="resume training")
-    parser.add_argument('--config', type=str, default="config/config_PocketNetM128.py", help="configuration path")
+    parser.add_argument('--config', type=str, default="config/config.py", help="configuration path")
 
     args_ = parser.parse_args()
     main(args_)

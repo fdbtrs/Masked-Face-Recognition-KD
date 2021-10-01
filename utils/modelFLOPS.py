@@ -1,8 +1,6 @@
-from backbones.augment_cnn import AugmentCNN
-from backbones import genotypes as gt
 
 from pytorch_model_summary import summary
-from util.config import config as cfg
+from config import config as cfg
 
 import torch
 from torch.autograd import Variable
@@ -115,9 +113,7 @@ def flops_to_string(flops, units='MFLOPS', precision=4):
 
 
 if __name__ == "__main__":
-    genotype = gt.from_str(cfg.genotypes["softmax_cifar10"])
 
-    model = AugmentCNN(112, 3, 16, 18, genotype, stem_multiplier=4, emb=128)
     model = iresnet100(num_features=128)
     print(model)
 

@@ -12,14 +12,12 @@ from torch.nn.utils import clip_grad_norm_
 from torch.nn import CrossEntropyLoss, MSELoss
 
 from utils import losses
-from util.config import config as cfg
+from config import config as cfg
 from utils.dataset import MXFaceDataset, DataLoaderX
 from utils.utils_callbacks import CallBackVerification, CallBackLoggingKD, CallBackModelCheckpointKD
 from utils.utils_logging import AverageMeter, init_logging
 
 from backbones.iresnet import iresnet100
-from backbones.augment_cnn import AugmentCNN
-import backbones.genotypes as gt
 
 torch.backends.cudnn.benchmark = True
 
@@ -59,8 +57,7 @@ def main(args):
         logging.info("load teacher backbone init, failed!")
 
     # load student model
-    genotype = gt.from_str(cfg.genotypes["softmax_casia"])
-    backbone_student = AugmentCNN(C=cfg.channel, n_layers=cfg.n_layers, genotype=genotype, stem_multiplier=4, emb=cfg.embedding_size).to(local_rank)
+    backbone_student = iresnet100(num_features=cfg.embedding_size).to(local_rank)
 
     if args.pretrained_student:
         try:

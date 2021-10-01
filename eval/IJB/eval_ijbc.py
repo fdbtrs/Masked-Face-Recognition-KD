@@ -6,6 +6,8 @@ import pickle
 import matplotlib
 import pandas as pd
 
+from backbones import iresnet100
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import timeit
@@ -49,8 +51,6 @@ import cv2
 import numpy as np
 import torch
 from skimage import transform as trans
-import backbones.genotypes as gt
-from backbones.augment_cnn import AugmentCNN
 
 
 
@@ -59,8 +59,7 @@ class Embedding(object):
         image_size = (112, 112)
         self.image_size = image_size
 
-        genotype = gt.from_str(cfg.genotypes["softmax_casia"])
-        backbone = AugmentCNN(C=32, n_layers=9, genotype=genotype, stem_multiplier=4, emb=cfg.embedding_size).to("cuda:0")
+        backbone = iresnet100(num_features=cfg.embedding_size).to("cuda:0")
 
         weight = torch.load(prefix, map_location=torch.device(f"cuda:0"))
         backbone.load_state_dict(weight)
