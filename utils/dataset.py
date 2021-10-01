@@ -99,9 +99,13 @@ class MXFaceDataset(Dataset):
             label = label[0]
         label = torch.tensor(label, dtype=torch.long)
         sample = mx.image.imdecode(img).asnumpy()
+        masked_sample=self.mask_images(sample)
         if self.transform is not None:
             sample = self.transform(sample)
-        return sample, label
+            masked_sample=self.transform(sample) #  50%
+        return masked_sample,sample, label
+    def mask_images(self,img):
+        return None
 
     def __len__(self):
         return len(self.imgidx)

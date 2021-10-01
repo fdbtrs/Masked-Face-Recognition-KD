@@ -167,14 +167,16 @@ def main(args):
 
     for epoch in range(start_epoch, cfg.num_epoch):
         train_sampler.set_epoch(epoch)
-        for step, (img, label) in enumerate(train_loader):
+        for step, (masked_img, img, label) in enumerate(train_loader):
             global_step += 1
             img = img.cuda(local_rank, non_blocking=True)
+            masked_img = masked_img.cuda(local_rank, non_blocking=True)
+
             label = label.cuda(local_rank, non_blocking=True)
 
             with torch.no_grad():
                 features_teacher = F.normalize(backbone_teacher(img))
-            features_student = F.normalize(backbone_student(img))
+            features_student = F.normalize(backbone_student(masked_img))
 
             thetas = header(features_student, label)
             loss_v1 = criterion(thetas, label)
