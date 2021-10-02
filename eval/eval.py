@@ -26,10 +26,8 @@ if __name__ == "__main__":
 
     for w in weights:
         if "backbone" in w:
-
             backbone = iresnet100(num_features=cfg.embedding_size).to(f"cuda:{gpu_id}")
-
             backbone.load_state_dict(torch.load(os.path.join(output_folder,w)))
             model = torch.nn.DataParallel(backbone, device_ids=[gpu_id])
-            callback_verification(int(w.split("backbone")[0]),model)
+            callback_verification(int(w.split("backbone")[0]),backbone)
 

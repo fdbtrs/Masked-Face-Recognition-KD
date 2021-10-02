@@ -15,7 +15,7 @@ config.m=0.5
 
 
 # for KD
-config.teacher_pth = "output/iresnet512"
+config.teacher_pth = "/home/fboutros/arcface_torch/output/emore_random_resnet"
 config.teacher_global_step = 295672
 config.teacher_network="resnet100"
 

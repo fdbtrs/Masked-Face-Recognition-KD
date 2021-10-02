@@ -62,7 +62,7 @@ class ArcFace(nn.Module):
         return output #, origin_cos * self.s
 
 class ElasticArcFace(nn.Module):
-    def __init__(self, in_features, out_features, s=64.0, m=0.50,std=0.0125):
+    def __init__(self, in_features, out_features, s=64.0, m=0.50,std=0.05):
         super(ElasticArcFace, self).__init__()
         self.in_features = in_features
         self.out_features = out_features

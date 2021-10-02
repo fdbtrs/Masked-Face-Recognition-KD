@@ -43,7 +43,7 @@ def main(args):
 
     train_loader = DataLoaderX(
         local_rank=local_rank, dataset=trainset, batch_size=cfg.batch_size,
-        sampler=train_sampler, num_workers=0, pin_memory=True, drop_last=True)
+        sampler=train_sampler, num_workers=32, pin_memory=True, drop_last=True)
 
     # load teacher model
     backbone_teacher = iresnet100(num_features=cfg.embedding_size).to(local_rank)
@@ -96,8 +96,8 @@ def main(args):
     # get header
     if args.loss == "ArcFace":
         header = losses.ArcFace(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=cfg.s, m=cfg.m).to(local_rank)
-    #elif args.loss == "CosFace":
-    #    header = losses.MarginCosineProduct(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=64, m=cfg.margin).to(local_rank)
+    elif args.loss == "ElasticArcFace":
+       header = losses.ElasticArcFace(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=cfg.s, m=cfg.margin).to(local_rank)
     #elif args.loss == "Softmax":
     #    header = losses.ArcFace(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=64.0, m=0).to(local_rank)
     else:
@@ -212,7 +212,7 @@ if __name__ == "__main__":
     parser.add_argument('--local_rank', type=int, default=0, help='local_rank')
     parser.add_argument('--network_student', type=str, default="iresnet100", help="backbone of student network")
     parser.add_argument('--network_teacher', type=str, default="iresnet100", help="backbone of teacher network")
-    parser.add_argument('--loss', type=str, default="ArcFace", help="loss function")
+    parser.add_argument('--loss', type=str, default="ElasticArcFace", help="loss function")
     parser.add_argument('--pretrained_student', type=int, default=0, help="use pretrained student model for KD")
     parser.add_argument('--resume', type=int, default=1, help="resume training")
     args_ = parser.parse_args()
