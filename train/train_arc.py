@@ -175,7 +175,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='PoketNet Training')
     parser.add_argument('--local_rank', type=int, default=0, help='local_rank')
     parser.add_argument('--network_student', type=str, default="PocketNet", help="backbone of PocketNet network")
-    parser.add_argument('--loss', type=str, default="ArcFace", help="loss function")
+    parser.add_argument('--loss', type=str, default="ElasticFaceArc", help="loss function")
     parser.add_argument('--pretrained_student', type=int, default=0, help="use pretrained")
     parser.add_argument('--resume', type=int, default=1, help="resume training")
     parser.add_argument('--config', type=str, default="config/config.py", help="configuration path")
