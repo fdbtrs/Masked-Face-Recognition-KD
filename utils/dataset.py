@@ -2,6 +2,8 @@ import numbers
 import os
 import queue as Queue
 import threading
+from random import random
+
 import cv2
 
 import mxnet as mx
@@ -109,11 +111,17 @@ class MXFaceDataset(Dataset):
             label = label[0]
         label = torch.tensor(label, dtype=torch.long)
         sample = mx.image.imdecode(img).asnumpy()
-        masked_sample=self.mask_images(sample)
-        if self.transform is not None:
-            sample = self.transform(sample)
-            masked_sample=self.transform(sample)
-        return masked_sample,sample, label
+        prob=random.uniform(0, 1)
+        if (prob<0.5):
+            masked_sample=self.mask_images(sample)
+            if self.transform is not None:
+             sample = self.transform(sample)
+             masked_sample=self.transform(sample)
+            return masked_sample,sample, label
+        else:
+            if self.transform is not None:
+                sample = self.transform(sample)
+            return sample,sample,label
     
     def mask_images(self,img):
         

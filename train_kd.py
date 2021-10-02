@@ -12,7 +12,7 @@ from torch.nn.utils import clip_grad_norm_
 from torch.nn import CrossEntropyLoss, MSELoss
 
 from utils import losses
-from config import config as cfg
+from config.config import config as cfg
 from utils.dataset import MXFaceDataset, DataLoaderX
 from utils.utils_callbacks import CallBackVerification, CallBackLoggingKD, CallBackModelCheckpointKD
 from utils.utils_logging import AverageMeter, init_logging
@@ -27,6 +27,7 @@ def main(args):
     torch.cuda.set_device(local_rank)
     rank = dist.get_rank()
     world_size = dist.get_world_size()
+
 
     if not os.path.exists(cfg.output) and rank == 0:
         os.makedirs(cfg.output)
@@ -97,7 +98,7 @@ def main(args):
     if args.loss == "ArcFace":
         header = losses.ArcFace(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=cfg.s, m=cfg.m).to(local_rank)
     elif args.loss == "ElasticArcFace":
-       header = losses.ElasticArcFace(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=cfg.s, m=cfg.margin).to(local_rank)
+       header = losses.ElasticArcFace(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=cfg.s, m=cfg.m).to(local_rank)
     #elif args.loss == "Softmax":
     #    header = losses.ArcFace(in_features=cfg.embedding_size, out_features=cfg.num_classes, s=64.0, m=0).to(local_rank)
     else:
