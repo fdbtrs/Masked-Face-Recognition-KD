@@ -2,7 +2,7 @@ import numbers
 import os
 import queue as Queue
 import threading
-from random import random
+import random
 
 import cv2
 
