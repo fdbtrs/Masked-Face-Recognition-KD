@@ -6,6 +6,16 @@ Research Paper at:
 
 * Arxiv
 
+## Table of Contents 
+
+- [Abstract](#abstract)
+- [Key Points](#key-points)
+- [Results](#results)
+- [Installation](#installation)
+- [Citing](#citing)
+- [Acknowledgement](#acknowledgement)
+- [License](#license)
+
 ### Abstract ###
 
 The emergence of the global COVID-19 pandemic poses new challenges for biometrics. Not only are contactless
@@ -21,4 +31,4 @@ in both scenarios, masked vs masked and masked vs nonmasked, and also outperform
 MFR2 dataset. Furthermore, we demonstrate that the proposed model can still perform well on unmasked faces with only a
 minor loss in verification performance.
 
-
+## Key Points ## 
