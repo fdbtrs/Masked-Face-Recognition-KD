@@ -2,6 +2,9 @@
 
 This is the official repository of "Mask-invariant Face Recognition through Template-level Knowledge Distillation" accepted at *IEEE International Conference on Automatic Face and Gesture Recognition 2021 (FG2021)*.
 
+<img src="MaskInv_Overview.png"> 
+
+
 Research Paper at:
 
 * Arxiv
