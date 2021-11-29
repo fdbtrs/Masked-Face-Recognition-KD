@@ -1,6 +1,6 @@
 # Mask-invariant Face Recognition through Template-level Knowledge Distillation
 
-This is the official repository of "Mask-invariant Face Recognition through Template-level Knowledge Distillation" accecpted at *IEEE International Conference on Automatic Face and Gesture Recognition 2021*.
+This is the official repository of "Mask-invariant Face Recognition through Template-level Knowledge Distillation" accepted at *IEEE International Conference on Automatic Face and Gesture Recognition 2021 (FG2021)*.
 
 Research Paper at:
 
