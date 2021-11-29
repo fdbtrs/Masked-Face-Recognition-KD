@@ -6,7 +6,7 @@ Research Paper at:
 
 * Arxiv
 
-*Abstract*
+### Abstract ###
 
 The emergence of the global COVID-19 pandemic poses new challenges for biometrics. Not only are contactless
 biometric identification options becoming more important, but face recognition has also recently been confronted with the
