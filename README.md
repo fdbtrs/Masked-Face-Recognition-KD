@@ -12,7 +12,6 @@ Research Paper at:
 ## Table of Contents 
 
 - [Abstract](#abstract)
-- [Key Points](#key-points)
 - [Results](#results)
 - [Installation](#installation)
 - [Citing](#citing)
@@ -34,4 +33,7 @@ in both scenarios, masked vs masked and masked vs nonmasked, and also outperform
 MFR2 dataset. Furthermore, we demonstrate that the proposed model can still perform well on unmasked faces with only a
 minor loss in verification performance.
 
-## Key Points ## 
+## Evaluation ## 
+
+The MFR2 Dataset can be downloaded at: https://github.com/aqeelanwar/MaskTheFace
+The preprocessed Benchmarks (LFW, CALFW, CPLFW, AgeDB-30, CFP-FP) can be downloaded [here](https://github.com/deepinsight/insightface/tree/master/recognition/_datasets_) 
