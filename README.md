@@ -35,7 +35,7 @@ minor loss in verification performance.
 
 ## Evaluation ## 
 
-The MFR2 dataset can be downloaded [here](https://github.com/aqeelanwar/MaskTheFace)
+The MFR2 dataset can be downloaded [here](https://github.com/aqeelanwar/MaskTheFace).
 
 The preprocessed Benchmarks (LFW, CALFW, CPLFW, AgeDB-30, CFP-FP) can be downloaded [here](https://github.com/deepinsight/insightface/tree/master/recognition/_datasets_) as "MS1M-ArcFace (85K ids/5.8M images)". 
 
