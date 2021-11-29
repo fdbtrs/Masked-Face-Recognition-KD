@@ -45,4 +45,12 @@ The [MFRC-21](https://www.igd.fraunhofer.de/sites/default/files/media/biblio/202
 ### Masks ###
 The mask template used to create the synthetic masked data for training and evaluation is [attached](https://github.com/fdbtrs/Masked-Face-Recognition-KD/blob/main/mask_img.png).
 
+### Models ###
+All used pre-trained models are available:
+* [ArcFace Model](https://github.com/deepinsight/insightface/tree/master/model_zoo)
+* [MagFace Model](https://github.com/IrvingMeng/MagFace)
+* [ElasticFace-Arc Model](https://github.com/fdbtrs/ElasticFace)
+
+Our models can be downloaded at:
+
 
