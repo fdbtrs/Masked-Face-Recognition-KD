@@ -44,6 +44,7 @@ The [MFRC-21](https://www.igd.fraunhofer.de/sites/default/files/media/biblio/202
 
 ### Masks ###
 The mask template used to create the synthetic masked data for training and evaluation is [attached](https://github.com/fdbtrs/Masked-Face-Recognition-KD/blob/main/mask_img.png).
+The colors for the synthetic masks on the benchmark can be downloaded [here](https://drive.google.com/drive/folders/1bW48uHfemK21vzy9eOsCuvvg9iT9RbPt?usp=sharing), they have to be placed in the /eval/ directory.
 
 ### Models ###
 All used pre-trained models are available:
