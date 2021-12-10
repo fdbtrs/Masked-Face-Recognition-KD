@@ -51,7 +51,7 @@ All used pre-trained models are available:
 * [MagFace Model](https://github.com/IrvingMeng/MagFace)
 * [ElasticFace-Arc Model](https://github.com/fdbtrs/ElasticFace)
 
-Our models can be downloaded at:
+Our models can be downloaded [here](https://drive.google.com/drive/folders/1HMpNlECooNJ3d-on8KGTBEuxUjWnrT1I?usp=sharing)
 
 ## Citing ##
 TODO
