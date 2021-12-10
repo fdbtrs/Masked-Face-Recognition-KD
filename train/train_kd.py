@@ -208,7 +208,7 @@ def main(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='PoketNet Training with template knowledge distillation')
+    parser = argparse.ArgumentParser(description='Training with template knowledge distillation')
     parser.add_argument('--local_rank', type=int, default=0, help='local_rank')
     parser.add_argument('--network_student', type=str, default="iresnet100", help="backbone of student network")
     parser.add_argument('--network_teacher', type=str, default="iresnet100", help="backbone of teacher network")
