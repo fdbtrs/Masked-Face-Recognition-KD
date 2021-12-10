@@ -13,7 +13,6 @@ Research Paper at:
 
 - [Abstract](#abstract)
 - [Results](#results)
-- [Installation](#installation)
 - [Citing](#citing)
 - [Acknowledgement](#acknowledgement)
 - [License](#license)
@@ -54,4 +53,13 @@ All used pre-trained models are available:
 
 Our models can be downloaded at:
 
+### Citing ###
+TODO
 
+### Acknowledgement ###
+This research work has been funded by the German Federal Ministry of Education and Research and the Hessian Ministry of Higher Education, Research, Science and the Arts within their joint support of the National Research Center for Applied Cybersecurity ATHENE.
+
+## License 
+
+This project is licensed under the terms of the Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license.
+Copyright (c) 2021 Fraunhofer Institute for Computer Graphics Research IGD Darmstadt
