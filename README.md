@@ -12,7 +12,7 @@ Research Paper at:
 ## Table of Contents 
 
 - [Abstract](#abstract)
-- [Evaluation](#evaluation)
+- [Data](#data)
 - [Citing](#citing)
 - [Acknowledgement](#acknowledgement)
 - [License](#license)
@@ -32,7 +32,7 @@ in both scenarios, masked vs masked and masked vs nonmasked, and also outperform
 MFR2 dataset. Furthermore, we demonstrate that the proposed model can still perform well on unmasked faces with only a
 minor loss in verification performance.
 
-## Evaluation ## 
+## Data ## 
 
 ### Datasets ###
 The MFR2 dataset can be downloaded [here](https://github.com/aqeelanwar/MaskTheFace).
