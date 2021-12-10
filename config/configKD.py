@@ -28,7 +28,7 @@ config.net_name="resnet100"
 config.w=100
 
 if config.dataset == "emore":
-    config.rec = "/data/fboutros/faces_emore"
+    config.rec = "data/faces_emore"
     config.num_classes = 85742
     config.num_image = 5822653
     config.num_epoch = 26
