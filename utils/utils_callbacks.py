@@ -5,12 +5,12 @@ from typing import List
 
 import torch
 
-from eval import verification
+from eval import verification_mask
 from utils.utils_logging import AverageMeter
 
 
 class CallBackVerification(object):
-    def __init__(self, frequent, rank, val_targets, rec_prefix, image_size=(112, 112)):
+    def __init__(self, frequent, rank, val_targets, rec_prefix, load_color=None, both_masked=None, image_size=(112, 112)):
         self.frequent: int = frequent
         self.rank: int = rank
         self.highest_acc: float = 0.0
@@ -18,12 +18,13 @@ class CallBackVerification(object):
         self.ver_list: List[object] = []
         self.ver_name_list: List[str] = []
         if self.rank == 0:
-            self.init_dataset(val_targets=val_targets, data_dir=rec_prefix, image_size=image_size)
+            #self.init_dataset(val_targets=val_targets, data_dir=rec_prefix, image_size=image_size, both_masked=both_masked, load_color=load_color)
+            self.init_dataset(val_targets=val_targets, data_dir=rec_prefix, image_size=image_size, both_masked=both_masked, load_color=load_color)
 
     def ver_test(self, backbone: torch.nn.Module, global_step: int):
         results = []
         for i in range(len(self.ver_list)):
-            acc1, std1, acc2, std2, xnorm, embeddings_list = verification.test(
+            acc1, std1, acc2, std2, xnorm, embeddings_list = verification_mask.test(
                 self.ver_list[i], backbone, 10, 10)
             logging.info('[%s][%d]XNorm: %f' % (self.ver_name_list[i], global_step, xnorm))
             logging.info('[%s][%d]Accuracy-Flip: %1.5f+-%1.5f' % (self.ver_name_list[i], global_step, acc2, std2))
@@ -33,11 +34,11 @@ class CallBackVerification(object):
                 '[%s][%d]Accuracy-Highest: %1.5f' % (self.ver_name_list[i], global_step, self.highest_acc_list[i]))
             results.append(acc2)
 
-    def init_dataset(self, val_targets, data_dir, image_size):
+    def init_dataset(self, val_targets, data_dir, image_size, both_masked, load_color):
         for name in val_targets:
             path = os.path.join(data_dir, name + ".bin")
             if os.path.exists(path):
-                data_set = verification.load_bin(path, image_size)
+                data_set = verification_mask.load_bin(path, image_size , both_masked, load_color) # 
                 self.ver_list.append(data_set)
                 self.ver_name_list.append(name)
 
@@ -45,7 +46,7 @@ class CallBackVerification(object):
         if self.rank == 0 and num_update > 0 and num_update % self.frequent == 0:
             backbone.eval()
             self.ver_test(backbone, num_update)
-            backbone.train()
+            #backbone.train()
 
 
 class CallBackLogging(object):
@@ -61,7 +62,7 @@ class CallBackLogging(object):
         self.init = False
         self.tic = 0
 
-    def __call__(self, global_step, loss: AverageMeter, epoch: int, fp16: bool, grad_scaler: torch.cuda.amp.GradScaler):
+    def __call__(self, global_step, loss: AverageMeter, epoch: int):
         if self.rank == 0 and global_step > 0 and global_step % self.frequent == 0:
             if self.init:
                 try:
@@ -76,13 +77,9 @@ class CallBackLogging(object):
                 if self.writer is not None:
                     self.writer.add_scalar('time_for_end', time_for_end, global_step)
                     self.writer.add_scalar('loss', loss.avg, global_step)
-                if fp16:
-                    msg = "Speed %.2f samples/sec   Loss %.4f   Epoch: %d   Global Step: %d   "\
-                          "Fp16 Grad Scale: %2.f   Required: %1.f hours" % (
-                        speed_total, loss.avg, epoch, global_step, grad_scaler.get_scale(), time_for_end
-                    )
-                else:
-                    msg = "Speed %.2f samples/sec   Loss %.4f   Epoch: %d   Global Step: %d   Required: %1.f hours" % (
+
+
+                msg = "Speed %.2f samples/sec   Loss %.4f   Epoch: %d   Global Step: %d   Required: %1.f hours" % (
                         speed_total, loss.avg, epoch, global_step, time_for_end
                     )
                 logging.info(msg)
