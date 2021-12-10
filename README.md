@@ -38,7 +38,7 @@ minor loss in verification performance.
 ### Datasets ###
 The MFR2 dataset can be downloaded [here](https://github.com/aqeelanwar/MaskTheFace).
 
-The preprocessed Benchmarks (LFW, CALFW, CPLFW, AgeDB-30, CFP-FP) can be downloaded [here](https://github.com/deepinsight/insightface/tree/master/recognition/_datasets_) as "MS1M-ArcFace (85K ids/5.8M images)". 
+The preprocessed benchmarks (LFW, CALFW, CPLFW, AgeDB-30, CFP-FP) can be downloaded [here](https://github.com/deepinsight/insightface/tree/master/recognition/_datasets_) as "MS1M-ArcFace (85K ids/5.8M images)". 
 
 The [MFRC-21](https://www.igd.fraunhofer.de/sites/default/files/media/biblio/2021/2021_boutros_mfr_2021.pdf) dataset is not available for the public.
 
