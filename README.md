@@ -13,6 +13,7 @@ Research Paper at:
 
 - [Abstract](#abstract)
 - [Data](#data)
+- [Model Training](#model-training)
 - [Citing](#citing)
 - [Acknowledgement](#acknowledgement)
 - [License](#license)
@@ -45,11 +46,17 @@ The [MFRC-21](https://www.igd.fraunhofer.de/sites/default/files/media/biblio/202
 The mask template used to create the synthetic masked data for training and evaluation is [attached](https://github.com/fdbtrs/Masked-Face-Recognition-KD/blob/main/mask_img.png).
 The colors for the synthetic masks on the benchmark can be downloaded [here](https://drive.google.com/drive/folders/1bW48uHfemK21vzy9eOsCuvvg9iT9RbPt?usp=sharing), they have to be placed in the /eval/ directory.
 
-### Models ###
-All used pre-trained models are available:
+### Model Training ###
+ 1. Download pretrained ElasitcFace model [ElasticFace-Arc Model](https://github.com/fdbtrs/ElasticFace) and copy it to the output folder
+ 2. Download MS1MV2 dataset from [insightface](https://github.com/deepinsight/insightface/tree/master/recognition/_datasets_) on strictly follow the licence distribution
+ 3. Set the config.rec in config/configKD.py to the dataset path
+ 4. run train_kd.py 
+### Pretrained Models ###
+All evaluated pre-trained models are available:
 * [ArcFace Model](https://github.com/deepinsight/insightface/tree/master/model_zoo)
 * [MagFace Model](https://github.com/IrvingMeng/MagFace)
 * [ElasticFace-Arc Model](https://github.com/fdbtrs/ElasticFace)
+
 
 Our models can be downloaded [here](https://drive.google.com/drive/folders/1HMpNlECooNJ3d-on8KGTBEuxUjWnrT1I?usp=sharing).
 
