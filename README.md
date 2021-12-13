@@ -55,6 +55,7 @@ Our models can be downloaded [here](https://drive.google.com/drive/folders/1HMpN
 
 ## Citing ##
 If you use any of the code provided in this repository or the models provided, please cite the following paper:
+```
 @misc{huber2021maskinvariant,
       title={Mask-invariant Face Recognition through Template-level Knowledge Distillation}, 
       author={Marco Huber and Fadi Boutros and Florian Kirchbuchner and Naser Damer},
@@ -63,6 +64,7 @@ If you use any of the code provided in this repository or the models provided, p
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
+```
 
 ## Acknowledgement ##
 This research work has been funded by the German Federal Ministry of Education and Research and the Hessian Ministry of Higher Education, Research, Science and the Arts within their joint support of the National Research Center for Applied Cybersecurity ATHENE.
