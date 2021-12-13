@@ -50,7 +50,8 @@ The colors for the synthetic masks on the benchmark can be downloaded [here](htt
  1. Download pretrained ElasitcFace model [ElasticFace-Arc Model](https://github.com/fdbtrs/ElasticFace) and copy it to the output folder
  2. Download MS1MV2 dataset from [insightface](https://github.com/deepinsight/insightface/tree/master/recognition/_datasets_) on strictly follow the licence distribution
  3. Set the config.rec in config/configKD.py to the dataset path
- 4. run train_kd.py 
+ 4. Intall the requirement from requirement.txt: pip install -r requirements.txt
+ 5. run train_kd.py 
 ### Pretrained Models ###
 All evaluated pre-trained models are available:
 * [ArcFace Model](https://github.com/deepinsight/insightface/tree/master/model_zoo)
