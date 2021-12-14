@@ -42,6 +42,8 @@ The preprocessed benchmarks (LFW, CALFW, CPLFW, AgeDB-30, CFP-FP) can be downloa
 
 The [MFRC-21](https://www.igd.fraunhofer.de/sites/default/files/media/biblio/2021/2021_boutros_mfr_2021.pdf) dataset is not available for the public.
 
+For all the datasets above, please strictly follow the licence distribution.
+
 ### Masks ###
 The mask template used to create the synthetic masked data for training and evaluation is [attached](https://github.com/fdbtrs/Masked-Face-Recognition-KD/blob/main/mask_img.png).
 The colors for the synthetic masks on the benchmark can be downloaded [here](https://drive.google.com/drive/folders/1bW48uHfemK21vzy9eOsCuvvg9iT9RbPt?usp=sharing), they have to be placed in the /eval/ directory.
