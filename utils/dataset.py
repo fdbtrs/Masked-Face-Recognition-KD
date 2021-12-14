@@ -116,7 +116,7 @@ class MXFaceDataset(Dataset):
             masked_sample=self.mask_images(sample)
             if self.transform is not None:
              sample = self.transform(sample)
-             masked_sample=self.transform(sample)
+             masked_sample=self.transform(masked_sample)
             return masked_sample,sample, label
         else:
             if self.transform is not None:
