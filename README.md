@@ -8,6 +8,7 @@ This is the official repository of "Mask-invariant Face Recognition through Temp
 Research Paper at:
 
 * [Arxiv](https://arxiv.org/abs/2112.05646)
+* [IEEE Xplore](https://ieeexplore.ieee.org/document/9667081)
 
 ## Table of Contents 
 
@@ -66,13 +67,15 @@ Our models can be downloaded [here](https://drive.google.com/drive/folders/1HMpN
 ## Citing ##
 If you use any of the code provided in this repository or the models provided, please cite the following paper:
 ```
-@misc{huber2021maskinvariant,
-      title={Mask-invariant Face Recognition through Template-level Knowledge Distillation}, 
-      author={Marco Huber and Fadi Boutros and Florian Kirchbuchner and Naser Damer},
-      year={2021},
-      eprint={2112.05646},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@INPROCEEDINGS{huber2021maskinvariant,  
+   author={Huber, Marco and Boutros, Fadi and Kirchbuchner, Florian and Damer, Naser},  
+   booktitle={2021 16th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2021)},   
+   title={Mask-invariant Face Recognition through Template-level Knowledge Distillation},   
+   year={2021},  
+   volume={},  
+   number={},  
+   pages={1-8},  
+   doi={10.1109/FG52635.2021.9667081}
 }
 ```
 
